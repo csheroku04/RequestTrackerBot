@@ -349,16 +349,16 @@ async def callBackButton(bot:Update, callback_query:CallbackQuery):
                     else:   # If accepting, rejecting request tried to be done by either admin or owner
                         if data == "reject":
                             result = "REJECTED"
-                            groupResult = "has been Rejected💔."
-                            button = InlineKeyboardButton("Request Rejected🚫", "rejected")
+                            groupResult = "ප්‍රතික්ෂේප කර ඇත.💔."
+                            button = InlineKeyboardButton("ඉල්ලීම ප්‍රතික්ෂේපයි🚫", "rejected")
                         elif data == "done":
                             result = "COMPLETED"
-                            groupResult = "is Completed🥳."
-                            button = InlineKeyboardButton("Request Completed✅", "completed")
+                            groupResult = "සම්පුර්ණ කර ඇත.🥳."
+                            button = InlineKeyboardButton("ඉල්ලීම සම්පුර්ණයි✅", "completed")
                         elif data == "unavailable":
                             result = "UNAVAILABLE"
-                            groupResult = "has been rejected💔 due to Unavailablity🥲."
-                            button = InlineKeyboardButton("Request Rejected🚫", "rejected")
+                            groupResult = "අසම්පුර්ණයි.💔 ලබාදිය නොහැකි නිසා."
+                            button = InlineKeyboardButton("ඉල්ලීම අසම්පුර්ණයි🚫", "rejected")
 
                         msg = callback_query.message
                         userid = 12345678
