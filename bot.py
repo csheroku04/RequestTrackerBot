@@ -390,7 +390,7 @@ async def callBackButton(bot:Update, callback_query:CallbackQuery):
                         )
 
                         # Result of request sent to group
-                        replyText = f"<b>Dear {mentionUser}🧑\nYour request for {contentRequested} {groupResult}\n👍Thanks for requesting!</b>"
+                        replyText = f"<b>Dear {mentionUser}🧑\nYour request for {contentRequested} {groupResult}\nCineSubz වෙතින් ඉල්ලීම් කල ඔබට ස්තුතියි ❤️</b>"
                         await bot.send_message(
                             int(groupID),
                             replyText,
