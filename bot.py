@@ -59,7 +59,7 @@ requestRegex = "#[rR][eE][qQ][uU][eE][sS][tT] "
 async def startHandler(bot:Update, msg:Message):
     botInfo = await bot.get_me()
     await msg.reply_text(
-        "<b>Hi, I am CineSubz Request Bot🤖",
+        "<b>Hi, I am  CineSubz Request BOT🤖/b>",
         parse_mode = "html",
         reply_markup = InlineKeyboardMarkup(
             [
@@ -90,7 +90,7 @@ async def forwardedHandler(bot:Update, msg:Message):
     forwardInfo = msg.forward_from_chat
     if forwardInfo.type == "channel":   # If message forwarded from channel
         await msg.reply_text(
-            f"<b>Hey😁,Sorry I am Only Working CineSubz ❤️</b>",
+            f"<b>Hey😁, Your Channel ID is <code>{forwardInfo.id}</code>\n\n😊Join @AJPyroVerse & @AJPyroVerseGroup for getting more awesome 🤖bots like this.</b>",
             parse_mode = "html"
         )
     return
@@ -106,7 +106,7 @@ async def groupChannelIDHandler(bot:Update, msg:Message):
             int(channelID)
         except ValueError:  # If Ids are not integer type
             await msg.reply_text(
-                "<b>Sorry I am Only Working CineSubz ❤️.</b>",
+                "<b>Group ID & Channel ID should be integer type😒.</b>",
                 parse_mode = "html"
             )
         else:   # If Ids are integer type
@@ -137,18 +137,18 @@ async def groupChannelIDHandler(bot:Update, msg:Message):
                     botSelfGroup = await bot.get_chat_member(int(groupID), 'me')
                 except (PeerIdInvalid, ValueError):   # If given group id is invalid
                     await msg.reply_text(
-                        "<b>Sorry I am Only Working CineSubz ❤️</b>",
+                        "<b>😒Group ID is wrong.\n\n😊Join @AJPyroVerse & @AJPyroVerseGroup for getting more awesome 🤖bots like this.</b>",
                         parse_mode = "html"
                     )
                 except UserNotParticipant:  # If bot is not in group
                     await msg.reply_text(
-                        "<b>Sorry I am Only Working CineSubz ❤️</b>",
+                        "<b>😁Add me in group and make me admin, then use /add.\n\n😊Join @AJPyroVerse & @AJPyroVerseGroup for getting more awesome 🤖bots like this.</b>",
                         parse_mode = "html"
                     )
                 else:
                     if botSelfGroup.status != "administrator":  # If bot is not admin in group
                         await msg.reply_text(
-                            "<b>Sorry I am Only Working CineSubz ❤️</b>",
+                            "<b>🥲Make me admin in Group, Then add use /add.\n\n😊Join @AJPyroVerse & @AJPyroVerseGroup for getting more awesome 🤖bots like this.</b>",
                             parse_mode = "html"
                         )
                     else:   # If bot is admin in group
@@ -222,7 +222,7 @@ async def channelgroupRemover(bot:Update, msg:Message):
                     break
             else:   # If group id not found in database
                 await msg.reply_text(
-                    "<b>Given Group ID is not found in our Database🤔.\n\n😊Join @cinesubz for getting more awesome 🤖bots like this.</b>",
+                    "<b>Given Group ID is not found in our Database🤔.\n\n😊Join @AJPyroVerse & @AJPyroVerseGroup for getting more awesome 🤖bots like this.</b>",
                     parse_mode = "html"
                 )
     else:   # If command is invalid
@@ -275,24 +275,24 @@ async def requestHandler(bot:Update, msg:Message):
                         [
                             InlineKeyboardButton(
                                 "🚫Reject",
-                                "🚫 ඔබගේ ඉල්ලීම ප්‍රතික්ෂේප කර ඇත.🚫"
+                                "reject"
                             ),
                             InlineKeyboardButton(
                                 "Done✅",
-                                "✅ ඔබගේ ඉල්ලීම සම්පුර්ණ කර ඇත ✅"
+                                "done"
                             )
                         ],
                         [
                             InlineKeyboardButton(
                                 "⚠️Unavailable⚠️",
-                                "⏰ තවම නිකුත් වී නැත.⏰"
+                                "unavailable"
                             )
                         ]
                     ]
                 )
             )
 
-            replyText = f"<b>👋 හායි {mentionUser} !!\n\n📍 Yඔබගේ ඉල්ලීම වන {contentRequested} අපවෙත ලැබී ඇත.\n\n🚀 🚀 ඔබගේ ඉල්ලීම අප ඉක්මනින් ලබාදීමට කටයුතු කරන්නෙමු.\n📌 📌 ඔබගේ ඉල්ලීමේ ස්වභාවය අනුව එය ලබා දීමට දින දෙකක් හෝ තුනක් පමණ ගතවිය හැකිය.\n\n👇 ඔබගේ ඉල්ලීමේ තත්ත්වය මෙතැනින් බලන්න 👇</b>"
+            replyText = f"<b>👋 Hello {mentionUser} !!\n\n📍 Your Request for {contentRequested} has been submitted to the admins.\n\n🚀 Your Request Will Be Uploaded soon.\n📌 Please Note that Admins might be busy. So, this may take more time.\n\n👇 See Your Request Status Here 👇</b>"
 
             # Sending message for user in group
             await msg.reply_text(
@@ -303,7 +303,7 @@ async def requestHandler(bot:Update, msg:Message):
                     [
                         [
                             InlineKeyboardButton(
-                                "⏳ඉල්ලිමේ තත්ත්වය⏳",
+                                "⏳Request Status⏳",
                                 url = f"https://t.me/c/{channelIDPro}/{requestMSG.message_id}"
                             )
                         ]
@@ -332,18 +332,18 @@ async def callBackButton(bot:Update, callback_query:CallbackQuery):
                     data = callback_query.data  # Callback Data
                     if data == "rejected":
                         return await callback_query.answer(
-                            "ඔබගේ ඉල්ලීම ප්‍රතික්ෂේප විය.💔එය අප විසින් මේ වන විටත් ලබා දී තිබිය හැකි අතර ඔබගේ අකුරු හෝ වර්ෂය වැරදි විය හැකිය. නැවත උත්සහ ගන්න,එසේ නොමැති නම් ඇඩ්මින් කෙනෙකුගේ සහය ලබා ගන්න.",
+                            "This request is rejected💔...\nAsk admins in group for more info💔",
                             show_alert = True
                         )
                     elif data == "completed":
                         return await callback_query.answer(
-                            "ඔබගේ ඉල්ලීම අප විසින් ලබා දී ඇති බව සතුටින් දන්වා සිටිමු.😍 CineSubz සමඟ රැදී සිටි ඔබට ස්තුතියි. එයි නම Group එකට ඇතුලත් කර එය ලබා ගන්න.👇",
+                            "This request Is Completed🥳...\nCheckout in Channel😊",
                             show_alert = True
                         )
                     user = await bot.get_chat_member(int(channelID), callback_query.from_user.id)
                     if user.status not in ("administrator", "creator"): # If accepting, rejecting request tried to be done by neither admin nor owner
                         await callback_query.answer(
-                            "ඔයා ඇඩ්මින් කෙනෙක් නෙමේනේ යාලු😒.",
+                            "Who the hell are you?\nYour are not Admin😒.",
                             show_alert = True
                         )
                     else:   # If accepting, rejecting request tried to be done by either admin or owner
