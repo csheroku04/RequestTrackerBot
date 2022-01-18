@@ -59,7 +59,7 @@ requestRegex = "#[rR][eE][qQ][uU][eE][sS][tT] "
 async def startHandler(bot:Update, msg:Message):
     botInfo = await bot.get_me()
     await msg.reply_text(
-        "<b>Hi, I am  CineSubz Request BOT🤖/b>",
+        "<b>Hi, I am  CineSubz Request BOT 🤖",
         parse_mode = "html",
         reply_markup = InlineKeyboardMarkup(
             [
@@ -90,7 +90,7 @@ async def forwardedHandler(bot:Update, msg:Message):
     forwardInfo = msg.forward_from_chat
     if forwardInfo.type == "channel":   # If message forwarded from channel
         await msg.reply_text(
-            f"<b>Hey😁, Your Channel ID is <code>{forwardInfo.id}</code>\n\n😊Join @AJPyroVerse & @AJPyroVerseGroup for getting more awesome 🤖bots like this.</b>",
+            f"<b>Hey😁, Your Channel ID is <code>{forwardInfo.id}</code>\n\n😊Hey😁,Sorry I am Only Working CineSubz ❤️</b>",
             parse_mode = "html"
         )
     return
@@ -137,18 +137,18 @@ async def groupChannelIDHandler(bot:Update, msg:Message):
                     botSelfGroup = await bot.get_chat_member(int(groupID), 'me')
                 except (PeerIdInvalid, ValueError):   # If given group id is invalid
                     await msg.reply_text(
-                        "<b>😒Group ID is wrong.\n\n😊Join @AJPyroVerse & @AJPyroVerseGroup for getting more awesome 🤖bots like this.</b>",
+                        "<b>😒Group ID is wrong.\n\n😊Join  for getting more awesome 🤖bots like this.</b>",
                         parse_mode = "html"
                     )
                 except UserNotParticipant:  # If bot is not in group
                     await msg.reply_text(
-                        "<b>😁Add me in group and make me admin, then use /add.\n\n😊Join @AJPyroVerse & @AJPyroVerseGroup for getting more awesome 🤖bots like this.</b>",
+                        "<b>😁Add me in group and make me admin, then use /add.\n\n😊getting more awesome 🤖bots like this.</b>",
                         parse_mode = "html"
                     )
                 else:
                     if botSelfGroup.status != "administrator":  # If bot is not admin in group
                         await msg.reply_text(
-                            "<b>🥲Make me admin in Group, Then add use /add.\n\n😊Join @AJPyroVerse & @AJPyroVerseGroup for getting more awesome 🤖bots like this.</b>",
+                            "<b>🥲Make me admin in Group, Then add use /add.\n\n😊Joinfor getting more awesome 🤖bots like this.</b>",
                             parse_mode = "html"
                         )
                     else:   # If bot is admin in group
@@ -161,7 +161,7 @@ async def groupChannelIDHandler(bot:Update, msg:Message):
                             )
                         except (ChatIdInvalid, ChannelInvalid): # If given channel id is invalid
                             await msg.reply_text(
-                                "<b>😒Channel ID is wrong.\n\n😊Join @AJPyroVerse & @AJPyroVerseGroup for getting more awesome 🤖bots like this.</b>",
+                                "<b>😒Channel ID is wrong.\n\n😊Join for getting more awesome 🤖bots like this.</b>",
                                 parse_mode = "html"
                             )
                         else:
@@ -275,24 +275,24 @@ async def requestHandler(bot:Update, msg:Message):
                         [
                             InlineKeyboardButton(
                                 "🚫Reject",
-                                "reject"
+                                "🚫 ඔබගේ ඉල්ලීම ප්‍රතික්ෂේප කර ඇත.🚫"
                             ),
                             InlineKeyboardButton(
                                 "Done✅",
-                                "done"
+                                "✅ ඔබගේ ඉල්ලීම සම්පුර්ණ කර ඇත ✅"
                             )
                         ],
                         [
                             InlineKeyboardButton(
                                 "⚠️Unavailable⚠️",
-                                "unavailable"
+                                "⏰ තවම නිකුත් වී නැත.⏰"
                             )
                         ]
                     ]
                 )
             )
 
-            replyText = f"<b>👋 Hello {mentionUser} !!\n\n📍 Your Request for {contentRequested} has been submitted to the admins.\n\n🚀 Your Request Will Be Uploaded soon.\n📌 Please Note that Admins might be busy. So, this may take more time.\n\n👇 See Your Request Status Here 👇</b>"
+            replyText = f"<b>👋 හායි {mentionUser} !!\n\n📍 Yඔබගේ ඉල්ලීම වන {contentRequested} අපවෙත ලැබී ඇත.\n\n🚀 🚀 ඔබගේ ඉල්ලීම අප ඉක්මනින් ලබාදීමට කටයුතු කරන්නෙමු.\n📌 📌 ඔබගේ ඉල්ලීමේ ස්වභාවය අනුව එය ලබා දීමට දින දෙකක් හෝ තුනක් පමණ ගතවිය හැකිය.\n\n👇 ඔබගේ ඉල්ලීමේ තත්ත්වය මෙතැනින් බලන්න 👇</b>"
 
             # Sending message for user in group
             await msg.reply_text(
