@@ -292,7 +292,7 @@ async def requestHandler(bot:Update, msg:Message):
                 )
             )
 
-            replyText = f"<b>👋 Hello {mentionUser} !!\n\n📍 Your Request for {contentRequested} has been submitted to the admins.\n\n🚀 Your Request Will Be Uploaded soon.\n📌 Please Note that Admins might be busy. So, this may take more time.\n\n👇 See Your Request Status Here 👇</b>"
+            replyText = f"<b>👋 හායි   {mentionUser} !!\n\n📍 ඔබගේ ඉල්ලීම වන  {contentRequested} අපවෙත ලැබී ඇත.\n\n🚀 ඔබගේ ඉල්ලීම අප ඉක්මනින් ලබාදීමට කටයුතු කරන්නෙමු.\n📌 අප සාමාන්‍යයෙන් කාර්යබහුල බැවින් ඔබගේ ඉල්ලීම දින 3ක්  ඇතුලත ලබාදීමට කටයුතු කරන බවද කරුණාවෙන් සළකන්න.\n\nඔබගේ ඉල්ලීමේ තත්වය මෙතැනින් බලන්න. 👇</b>"
 
             # Sending message for user in group
             await msg.reply_text(
@@ -303,7 +303,7 @@ async def requestHandler(bot:Update, msg:Message):
                     [
                         [
                             InlineKeyboardButton(
-                                "⏳Request Status⏳",
+                                "⏳ඉල්ලීමේ තත්වය⏳",
                                 url = f"https://t.me/c/{channelIDPro}/{requestMSG.message_id}"
                             )
                         ]
