@@ -349,7 +349,7 @@ async def callBackButton(bot:Update, callback_query:CallbackQuery):
                     else:   # If accepting, rejecting request tried to be done by either admin or owner
                         if data == "reject":
                             result = "REJECTED"
-                            groupResult = "ප්‍රතික්ෂේප කර ඇත.💔."
+                            groupResult = " දැනටමත් Website එක තුල තිබෙන අතර..😕💔 කරුණාකර එම movie එකෙහි නිවැරදි නම සහ වර්ෂය  අපගේ ගෲප් එකට දමා එය ලබාගැනීමට කටයුතු කරන්න.🙂"
                             button = InlineKeyboardButton("ඉල්ලීම ප්‍රතික්ෂේපයි🚫", "rejected")
                         elif data == "done":
                             result = "COMPLETED"
@@ -357,7 +357,7 @@ async def callBackButton(bot:Update, callback_query:CallbackQuery):
                             button = InlineKeyboardButton("ඉල්ලීම සම්පුර්ණයි✅", "completed")
                         elif data == "unavailable":
                             result = "UNAVAILABLE"
-                            groupResult = "අසම්පුර්ණයි.💔 ලබාදිය නොහැකි නිසා."
+                            groupResult = "අසම්පුර්ණයි.💔සිංහල උපසිරසි නොමැති නිසා හෝ තවමත් එය නිකුත් වී නොමැති හෝ එය සොයා ගත නොහැකි නිසා 😞"
                             button = InlineKeyboardButton("ඉල්ලීම අසම්පුර්ණයි🚫", "rejected")
 
                         msg = callback_query.message
