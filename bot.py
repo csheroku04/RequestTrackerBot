@@ -287,12 +287,6 @@ async def requestHandler(bot:Update, msg:Message):
                                 "⚠️Unavailable⚠️",
                                 "unavailable"
                             )
-                        ],
-                        [
-                            InlineKeyboardButton(
-                                "⚠️NO SUB⚠️",
-                                "nosub"
-                            )
                         ]
                     ]
                 )
@@ -365,10 +359,6 @@ async def callBackButton(bot:Update, callback_query:CallbackQuery):
                             result = "UNAVAILABLE"
                             groupResult = "අසම්පුර්ණයි.💔 ලබාදිය නොහැකි නිසා."
                             button = InlineKeyboardButton("ඉල්ලීම අසම්පුර්ණයි🚫", "rejected")
-                         elif data == "nosub":
-                            result = "nosub"
-                            groupResult = "Sub na machn."
-                            button = InlineKeyboardButton("Sub nane Bro🚫", "rejected")                           
 
                         msg = callback_query.message
                         userid = 12345678
@@ -413,4 +403,3 @@ async def callBackButton(bot:Update, callback_query:CallbackQuery):
 """Bot is Started"""
 print("Bot has been Started!!!")
 app.run()
-
