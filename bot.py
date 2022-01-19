@@ -291,7 +291,7 @@ async def requestHandler(bot:Update, msg:Message):
                         [
                             InlineKeyboardButton(
                                 "⚠️NO SUB⚠️",
-                                "unavailable"
+                                "nosub"
                             )
                         ]
                     ]
@@ -365,8 +365,8 @@ async def callBackButton(bot:Update, callback_query:CallbackQuery):
                             result = "UNAVAILABLE"
                             groupResult = "අසම්පුර්ණයි.💔 ලබාදිය නොහැකි නිසා."
                             button = InlineKeyboardButton("ඉල්ලීම අසම්පුර්ණයි🚫", "rejected")
-                         elif data == "unavailable":
-                            result = "UNAVAILABLE"
+                         elif data == "nosub":
+                            result = "nosub"
                             groupResult = "Sub na machn."
                             button = InlineKeyboardButton("Sub nane Bro🚫", "rejected")                           
 
