@@ -308,7 +308,118 @@ async def requestHandler(bot:Update, msg:Message):
                 )
             )
 
-           replyText = f"<b>👋 හායි   {mentionUser} !!\n\n📍 ඔබගේ ඉල්ලීම වන  {contentRequested} අපවෙත ලැබී ඇත.\n\n🚀 එක දිනකදී ඔබට ඉල්ලීම් එකක් පමණක් සිදු කල හැක.\n📌 තව ඉල්ලීම් ඇත්නම් එය හෙට ලබා දෙන්න.\n\nඔබගේ ඉල්ලීමේ තත්වය මෙතැනින් බලන්න.👇</b>"
+          replyText = f"<b>👋 හායි   {mentionUser} !!\n\n📍 ඔබගේ ඉල්ලීම වන  {contentRequested} අපවෙත ලැබී ඇත.\n\n🚀 ඔබගේ ඉල්ලීම අප ඉක්මනින් ලබාදීමට කටයුතු කරන්නෙමු.\n📌 අප සාමාන්‍යයෙන් කාර්යබහුල බැවින් ඔබගේ ඉල්ලීම දින 3ක්  ඇතුලත ලබාදීමට කටයුතු කරන බවද කරුණාවෙන් සළකන්න.\n\nඔබගේ ඉල්ලීමේ තත්වය මෙතැනින් බලන්න. 👇</b>"
+
+            # Sending message for user in group
+            await msg.reply_text(
+                replyText,
+                parse_mode = "html",
+                reply_to_message_id = msg.message_id,
+                reply_markup = InlineKeyboardMarkup(
+                    [
+                        [
+                            InlineKeyboardButton(
+                                "⏳ඉල්ලීමේ තත්වය⏳",
+                                url = f"https://t.me/c/{channelIDPro}/{requestMSG.message_id}"
+                            )
+                        ]
+                    ]
+                )
+            )
+            break
+    return
+        
+# callback buttons handler
+@app.on_callback_query()
+async def callBackButton(bot:Update, callback_query:CallbackQuery):
+    channelID = str(callback_query.message.chat.id)
+
+    documents = collection_ID.find()
+    for document in documents:
+        for key in document:
+            if key == "_id":
+                continue
+            else:
+                if document[key][0] != channelID:
+                    continue
+                else:   # If channel id found in database
+                    groupID = key
+
+                    data = callback_query.data  # Callback Data
+                    if data == "rejected":
+                        return await callback_query.answer(
+                            "This request is rejected💔...\nAsk admins in group for more info💔",
+                            show_alert = True
+                        )
+                    elif data == "completed":
+                        return await callback_query.answer(
+                            "This request Is Completed🥳...\nCheckout in Channel😊",
+                            show_alert = True
+                        )
+                    user = await bot.get_chat_member(int(channelID), callback_query.from_user.id)
+                    if user.status not in ("administrator", "creator"): # If accepting, rejecting request tried to be done by neither admin nor owner
+                        await callback_query.answer(
+                            "Who the hell are you?\nYour are not Admin😒.",
+                            show_alert = True
+                        )
+                    else:   # If accepting, rejecting request tried to be done by either admin or owner
+                        if data == "reject":
+                            result = "REJECTED"
+                            groupResult = " දැනටමත් Website එක තුල තිබෙන අතර..😕💔 කරුණාකර එම movie එකෙහි නිවැරදි නම සහ වර්ෂය  අපගේ ගෲප් එකට දමා එය ලබාගැනීමට කටයුතු කරන්න.🙂"
+                            button = InlineKeyboardButton("ඉල්ලීම ප්‍රතික්ෂේපයි🚫", "rejected")
+                        elif data == "done":
+                            result = "COMPLETED"
+                            groupResult = "සම්පුර්ණ කර ඇත.🥳."
+                            button = InlineKeyboardButton("ඉල්ලීම සම්පුර්ණයි✅", "completed")
+                        elif data == "unavailable":
+                            result = "UNAVAILABLE"
+                            groupResult = "අසම්පුර්ණයි.💔සිංහල උපසිරසි නොමැති නිසා හෝ තවමත් එය නිකුත් වී නොමැති හෝ එය සොයා ගත නොහැකි නිසා 😞"
+                            button = InlineKeyboardButton("ඉල්ලීම අසම්පුර්ණයි🚫", "rejected")
+
+                        msg = callback_query.message
+                        userid = 12345678
+                        for m in msg.entities:
+                            if m.type == "text_mention":
+                                userid = m.user.id
+                        originalMsg = msg.text
+                        findRegexStr = search(requestRegex, originalMsg)
+                        requestString = findRegexStr.group()
+                        contentRequested = originalMsg.split(requestString)[1]
+                        requestedBy = originalMsg.removeprefix("Request by ").split('\n\n')[0]
+                        mentionUser = f"<a href='tg://user?id={userid}'>{requestedBy}</a>"
+                        originalMsgMod = originalMsg.replace(requestedBy, mentionUser)
+                        originalMsgMod = f"<s>{originalMsgMod}</s>"
+
+                        newMsg = f"<b>{result}</b>\n\n{originalMsgMod}"
+
+                        # Editing reqeust message in channel
+                        await callback_query.edit_message_text(
+                            newMsg,
+                            parse_mode = "html",
+                            reply_markup = InlineKeyboardMarkup(
+                                [
+                                    [
+                                        button
+                                    ]
+                                ]
+                            )
+                        )
+
+                        # Result of request sent to group
+                        replyText = f"<b>හායි {mentionUser}🧑\nඔබගේ ඉල්ලීම වන {contentRequested} {groupResult}\nCineSubz වෙතින් ඉල්ලීම් කල ඔබට ස්තුතියි ❤️</b>"
+                        await bot.send_message(
+                            int(groupID),
+                            replyText,
+                            parse_mode = "html"
+                        )
+                    return
+    return
+
+
+"""Bot is Started"""
+print("Bot has been Started!!!")
+app.run()
+
 
             # Sending message for user in group
             await msg.reply_text(
