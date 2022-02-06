@@ -290,8 +290,8 @@ async def requestHandler(bot:Update, msg:Message):
                         ],
                         [
                             InlineKeyboardButton(
-                                "⚠️Processing⚠️",
-                                "processing"
+                                "⚠️Unavailable⚠️",
+                                "unavailable"
                             )
                         ]
                     ]
@@ -365,8 +365,8 @@ async def callBackButton(bot:Update, callback_query:CallbackQuery):
                             result = "UNAVAILABLE"
                             groupResult = "අසම්පුර්ණයි.💔සිංහල උපසිරසි නොමැති නිසා හෝ තවමත් එය නිකුත් වී නොමැති හෝ එය සොයා ගත නොහැකි නිසා 😞"
                             button = InlineKeyboardButton("ඉල්ලීම අසම්පුර්ණයි🚫", "rejected")
-                       elif data == "processing":
-                            result = "PROCESSING"
+                       elif data == "unavailable":
+                            result = "UNAVAILABLE"
                             groupResult = "අපුර්ණයි.💔සිංහල උපසිරසි නොමැති නිසා හෝ තවමත් එය නිකුත් වී නොමැති හෝ එය සොයා ගත නොහැකි නිසා 😞"
                             button = InlineKeyboardButton("ඉල්ලීම අපුර්ණයි🚫", "rejected")
 
