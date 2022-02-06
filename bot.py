@@ -288,8 +288,8 @@ async def requestHandler(bot:Update, msg:Message):
                                 "unavailable"
                             ),
                             InlineKeyboardButton(
-                                "ok✅",
-                                "ok"
+                                "nosub✅",
+                                "nosub"
                             )
                         ]
                     ]
@@ -359,8 +359,8 @@ async def callBackButton(bot:Update, callback_query:CallbackQuery):
                             result = "COMPLETED"
                             groupResult = "සම්පුර්ණ කර ඇත.🥳."
                             button = InlineKeyboardButton("ඉල්ලීම සම්පුර්ණයි✅", "completed")
-                        elif data == "ok":
-                            result = "COMPLETED"
+                        elif data == "nosub":
+                            result = "REJECTED"
                             groupResult = "පුර්ණ කර ඇත.🥳."
                             button = InlineKeyboardButton("ඉල්ලීම සම්පුර්ණයි✅", "completed")
                         elif data == "unavailable":
