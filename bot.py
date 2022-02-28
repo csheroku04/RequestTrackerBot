@@ -301,7 +301,14 @@ async def requestHandler(bot:Update, msg:Message):
                                 "TVTime⌛️",
                                 "tvtime"
                             )
+                        ],
+                        [
+                            InlineKeyboardButton(
+                                "RuleBrake",
+                                "rulebrake"
+                            )
                         ]
+                        
                                            
                     ]
                 )
@@ -318,7 +325,7 @@ async def requestHandler(bot:Update, msg:Message):
                     [
                         [
                             InlineKeyboardButton(
-                                "⏳ඉල්ලීමේ තත්වය⏳",
+                                "🙏 කරුණාකර සිමාවන් පිළිපදින්න 🙏",
                                 url = f"https://t.me/c/{channelIDPro}/{requestMSG.message_id}"
                             )
                         ]
@@ -384,7 +391,11 @@ async def callBackButton(bot:Update, callback_query:CallbackQuery):
                             button = InlineKeyboardButton("ඉල්ලීම අසම්පුර්ණයි🚫", "rejected")
                         elif data == "tvtime":
                             result = "REJECTED"
-                            groupResult = "අසම්පුර්ණයි.⌛️ එය ලැයිස්තු ගත කර ඇත.එය ලබාදීමට කටයුතු කරන්නෙමු.😞"
+                            groupResult = "කල් ගතවේ.⌛️ එය ලැයිස්තු ගත කර ඇත.එය ලබාදීමට කටයුතු කරන්නෙමු.😞"
+                            button = InlineKeyboardButton("ඉල්ලීම අසම්පුර්ණයි🚫", "rejected")
+                        elif data == "rulebrake":
+                            result = "REJECTED"
+                            groupResult = "ඔබ අපගේ ඉල්ලීම් සිමාවන් ඉක්මවා ඇත.එම නිසා මෙම සතියේ මෙය ප්‍රතික්ෂේපයි.මෙය අවශ්‍ය නම් ඊලග සතියේ නැවත ඉල්ලීම් කරන්න.😞"
                             button = InlineKeyboardButton("ඉල්ලීම අසම්පුර්ණයි🚫", "rejected")
 
                         msg = callback_query.message
