@@ -4,6 +4,7 @@ This is a Request Tracker Bot repo, It is for those who upload content like movi
 
 The owner of this bot is [AJTimePyro](https://t.me/AJTimePyro), His Telegram [Channel](http://t.me/AJPyroVerse) & [Group](http://t.me/AJPyroVerseGroup).
 Don't Forget to give a Star.
+[![Deploy on Railway](https://railway.app/button.svg)](https://railway.app/new/template/dvUHSi)
 
 ## Some ScreenShots
 These ScreenShots might help you to understand this bot well.
