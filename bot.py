@@ -314,7 +314,7 @@ async def requestHandler(bot:Update, msg:Message):
                 )
             )
 
-            replyText = f"<b>👋 Hello {mentionUser} !!\n\n📍 Your Request for {contentRequested} has been submitted to the admins.\n\n🚀 Your Request Will Be Uploaded soon.\n📌 Please Note that Admins might be busy. So, this may take more time.\n\n👇 See Your Request Status Here 👇</b>"
+          replyText = f"<b>👋 හායි   {mentionUser} !!\n\n📍 ඔබගේ ඉල්ලීම වන  {contentRequested} අපවෙත ලැබී ඇත.\n\n🚀ඔබගේ ඉල්ලීම ඉටුවනතෙක් හෝ තව දින 30 ක් යනතෙක් ඔබට ෆිල්ම් ඉල්ලීමේ හැකියාව නොමැත.\n\n📌තවම නිකුත් නොවූ ෆිල්ම් ඉල්ලීම් ඒවා නිකුත් වූ පසු ලබාදේ.\n(එම නිසා ඔබගේ නැවත ෆිල්ම් ඉල්ලීමේ හැකියාව Lock ඉවත් කරනු කරනවා.) \n\nගැටළුවක් ඇත්නම් අපිට කියන්න 👉@CineSubzAdminBot </b>"
 
             # Sending message for user in group
             await msg.reply_text(
