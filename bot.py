@@ -314,7 +314,7 @@ async def requestHandler(bot:Update, msg:Message):
                 )
             )
 
-            replyText = f"<b>👋 හායි   {mentionUser} !!\n\n📍 ඔබගේ ඉල්ලීම වන  {contentRequested} අපවෙත ලැබී ඇත.</b>"
+            replyText = f"<b>👋 හායි   {mentionUser} !!\n\n📍 ඔබගේ ඉල්ලීම වන  {contentRequested} අපවෙත ලැබී ඇත.\nඔබගේ ඉල්ලම පරික්ෂා කර නැවත ඔබට පණිවිඩයක් එවනු ලැබේ.❤️</b>"
 
             # Sending message for user in group
             await msg.reply_text(
