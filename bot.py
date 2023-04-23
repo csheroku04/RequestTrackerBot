@@ -66,7 +66,7 @@ async def startHandler(bot:Update, msg:Message):
                 [
                     InlineKeyboardButton(
                         "🍿 Channel 🍿",
-                        url = f"https://t.me/cinesubz"
+                        url = f"https://t.me/cinesubzmovies"
                     )
                 ]
             ]
@@ -90,7 +90,7 @@ async def forwardedHandler(bot:Update, msg:Message):
     forwardInfo = msg.forward_from_chat
     if forwardInfo.type == "channel":   # If message forwarded from channel
         await msg.reply_text(
-            f"<b>Hey😁, Your Channel ID is <code>{forwardInfo.id}</code>\n\n😊Join @AJPyroVerse & @AJPyroVerseGroup for getting more awesome 🤖bots like this.</b>",
+            f"<b>Hey😁, Your Channel ID is <code>{forwardInfo.id}</code>\n\n😊Join @CineSubzMovies for getting more awesome 🤖bots like this.</b>",
             parse_mode = "html"
         )
     return
@@ -137,18 +137,18 @@ async def groupChannelIDHandler(bot:Update, msg:Message):
                     botSelfGroup = await bot.get_chat_member(int(groupID), 'me')
                 except (PeerIdInvalid, ValueError):   # If given group id is invalid
                     await msg.reply_text(
-                        "<b>😒Group ID is wrong.\n\n😊Join @AJPyroVerse & @AJPyroVerseGroup for getting more awesome 🤖bots like this.</b>",
+                        "<b>😒Group ID is wrong.\n\n😊Join @CineSubzMovies for getting more awesome 🤖bots like this.</b>",
                         parse_mode = "html"
                     )
                 except UserNotParticipant:  # If bot is not in group
                     await msg.reply_text(
-                        "<b>😁Add me in group and make me admin, then use /add.\n\n😊Join @AJPyroVerse & @AJPyroVerseGroup for getting more awesome 🤖bots like this.</b>",
+                        "<b>😁Add me in group and make me admin, then use /add.\n\n😊Join @CineSubzMovies for getting more awesome 🤖bots like this.</b>",
                         parse_mode = "html"
                     )
                 else:
                     if botSelfGroup.status != "administrator":  # If bot is not admin in group
                         await msg.reply_text(
-                            "<b>🥲Make me admin in Group, Then add use /add.\n\n😊Join @AJPyroVerse & @AJPyroVerseGroup for getting more awesome 🤖bots like this.</b>",
+                            "<b>🥲Make me admin in Group, Then add use /add.\n\n😊Join @CineSubzMovies for getting more awesome 🤖bots like this.</b>",
                             parse_mode = "html"
                         )
                     else:   # If bot is admin in group
@@ -161,7 +161,7 @@ async def groupChannelIDHandler(bot:Update, msg:Message):
                             )
                         except (ChatIdInvalid, ChannelInvalid): # If given channel id is invalid
                             await msg.reply_text(
-                                "<b>😒Channel ID is wrong.\n\n😊Join @AJPyroVerse & @AJPyroVerseGroup for getting more awesome 🤖bots like this.</b>",
+                                "<b>😒Channel ID is wrong.\n\n😊Join @CineSubzMovies for getting more awesome 🤖bots like this.</b>",
                                 parse_mode = "html"
                             )
                         else:
@@ -177,12 +177,12 @@ async def groupChannelIDHandler(bot:Update, msg:Message):
                                     }
                                 )
                                 await msg.reply_text(
-                                    "<b>Your Group and Channel has now been added SuccessFully🥳.\n\n😊Join @AJPyroVerse & @AJPyroVerseGroup for getting more awesome 🤖bots like this.</b>",
+                                    "<b>Your Group and Channel has now been added SuccessFully🥳.\n\n😊Join @CineSubzMovies for getting more awesome 🤖bots like this.</b>",
                                     parse_mode = "html"
                                 )
     else:   # If command is invalid
         await msg.reply_text(
-            "<b>Invalid Format😒\nSend Group ID & Channel ID in this format <code>/add GroupID ChannelID</code>.\n\n😊Join @AJPyroVerse & @AJPyroVerseGroup for getting more awesome 🤖bots like this.</b>",
+            "<b>Invalid Format😒\nSend Group ID & Channel ID in this format <code>/add GroupID ChannelID</code>.\n\n😊Join @CineSubzMovies for getting more awesome 🤖bots like this.</b>",
             parse_mode = "html"
         )
     return
@@ -222,7 +222,7 @@ async def channelgroupRemover(bot:Update, msg:Message):
                     break
             else:   # If group id not found in database
                 await msg.reply_text(
-                    "<b>Given Group ID is not found in our Database🤔.\n\n😊Join @AJPyroVerse & @AJPyroVerseGroup for getting more awesome 🤖bots like this.</b>",
+                    "<b>Given Group ID is not found in our Database🤔.\n\n😊Join @CineSubzMovies for getting more awesome 🤖bots like this.</b>",
                     parse_mode = "html"
                 )
     else:   # If command is invalid
@@ -314,7 +314,8 @@ async def requestHandler(bot:Update, msg:Message):
                 )
             )
 
-            replyText = f"<b>👋 හායි   {mentionUser} !!\n\n📍 ඔබගේ ඉල්ලීම වන  {contentRequested} අපවෙත ලැබී ඇත.\n\n🚀 එක් මසකදී සතියකට එක බැගින් ෆිල්ම් 4 ක් පමණක් ඔබට ඉල්ලීම් කල හැක.\n📌එක් මසකදී TV Series  එකක් පමණක් ඉල්ලීම් කල හැක.ඉහත සීමාවක් ඉක්මවන සියලු ඉල්ලීම් අප විසින් නොසලකා හරිනු ලබයි.\n\n[2022 අලුතින් නිකුත්වන ෆිල්ම් සහ 2022 වසරේදී අලුතින් සකසන උපසිරසි චිත්‍රපට සඳහා ඉහත සිමා අදාළ නොවේ]</b>"
+            replyText = f"<b>👋 හායි   {mentionUser} !!\n\n📍 ඔබගේ ඉල්ලීම වන  {contentRequested} අපවෙත ලැබී ඇත.\n\n🚀 මේ වන විට සිංහල උපසිරසි ඇත්නම් හා එයට ගැලපෙන පිටපතක් ඇත්නම් ඔබට එය වෙබ් අඩවියට ඇතුලත් කර පණිවිඩයක් එවනු ලැබේ.\n\ ඔබගේ ඉල්ලීම ඉටුවනතෙක් හෝ තව දින 30 ක් යනතෙක් ඔබට ෆිල්ම් ඉල්ලීමේ හැකියාව නොමැත\n\n📌2023 වර්ෂයේ තවමත් නිකුත් නොවූ හා උපසිරසි නිකුත් නොවූ ඉල්ලීම් ඒවා නිකුත් වූ පසු ලබාදේ.(එම නිසා ඔබගේ නැවත ෆිල්ම් ඉල්ලීමේ Lock ඉවත් කරනු කරනවා.)\n\n යම්කිසි ගැටළුවක් ඇත්නම් පමණක් @CineSubzAdminBot ඔස්සේ අපව සම්බන්ධ කරන්න
+</b>"
 
             # Sending message for user in group
             await msg.reply_text(
@@ -325,8 +326,14 @@ async def requestHandler(bot:Update, msg:Message):
                     [
                         [
                             InlineKeyboardButton(
-                                "🙏 කරුණාකර සිමාවන් පිළිපදින්න 🙏",
+                                "✅ Request Listed ✅",
                                 url = f"https://t.me/c/{channelIDPro}/{requestMSG.message_id}"
+                            )
+                        ],
+                        [
+                            InlineKeyboardButton(
+                                "🎖 Contact Admin 🎖",
+                                url = f"https://t.me/CineSubzAdminbot"
                             )
                         ]
                     ]
